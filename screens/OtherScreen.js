@@ -1,5 +1,5 @@
 import React from "react";
-import {AsyncStorage, Button, StyleSheet, View} from "react-native";
+import {AsyncStorage, Button, StatusBar, StyleSheet, View} from "react-native";
 
 const styles = StyleSheet.create({
     container: {
@@ -9,26 +9,23 @@ const styles = StyleSheet.create({
     },
 });
 
-export default class HomeScreen extends React.Component {
+
+export default class OtherScreen extends React.Component {
     static navigationOptions = {
-        title: 'Welcome to the app!',
+        title: 'Lots of features here',
     };
 
     render() {
         return (
             <View style={styles.container}>
-                <Button title="Show me more of the app" onPress={this._showMoreApp} />
-                <Button title="Go to Login Page (Signout)" onPress={this._signOutAsync} />
+                <Button title="I'm done, sign me out" onPress={this._signOutAsync} />
+                <StatusBar barStyle="default" />
             </View>
         );
     }
-
-    _showMoreApp = () => {
-        this.props.navigation.navigate('Other');
-    };
 
     _signOutAsync = async () => {
         await AsyncStorage.clear();
         this.props.navigation.navigate('Auth');
     };
-};
+}
