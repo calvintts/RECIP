@@ -3,7 +3,9 @@ import {Text, View, StyleSheet, TextInput, TouchableOpacity, Image} from "react-
 import styles from '../designs/stylings';
 import StartButton from './UtilityRNComponents.js'
 import Logo from "../images/logo2.png";
-// import FbLogin from '../components/fblogin'
+import GoogleLoginButton from '../components/Googlogin'
+import FacebookLoginButton from '../components/Fblogin'
+
 
 
 export default class SignInScreen extends React.Component {
@@ -67,6 +69,8 @@ export default class SignInScreen extends React.Component {
                         </TouchableOpacity>
                     </View>
                 </View>
+                <GoogleLoginButton/>
+                <FacebookLoginButton/>
             </View>
         );
     }
