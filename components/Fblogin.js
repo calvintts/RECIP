@@ -11,12 +11,11 @@ export default class GoogloginButton extends React.Component {
     _signIn = async () => {
         try {
             const {type, token} = await Expo.Facebook.logInWithReadPermissionsAsync('273609693274100', {
-                permissions: ['public_profile'],
+                permissions: ['public_profile', 'email', 'user_friends'],
             });
             if (type === 'success') {
                 // Get the user's name using Facebook's Graph API
                 const response = await fetch(`https://graph.facebook.com/me?access_token=${token}`);
-                console.log(await response.json());
                 Alert.alert(
                     'Logged in!',
                     `Hi ${(await response.json()).name}!`,

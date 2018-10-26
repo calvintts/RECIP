@@ -68,9 +68,14 @@ export default class SignInScreen extends React.Component {
                             <Text style={{color: 'rgb(150, 10 , 10)', fontSize: 15}}>Register Here</Text>
                         </TouchableOpacity>
                     </View>
+                    <View style={{paddingBottom: 15}}>
+                        <GoogleLoginButton/>
+                    </View>
+                    <View style={{}}>
+                        <FacebookLoginButton/>
+                    </View>
                 </View>
-                <GoogleLoginButton/>
-                <FacebookLoginButton/>
+
             </View>
         );
     }
