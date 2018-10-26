@@ -1,5 +1,5 @@
 import React from "react";
-import {Text, View, Button, StyleSheet, TextInput, TouchableOpacity} from "react-native";
+import {Text, View, KeyboardAvoidingView, TextInput, TouchableOpacity} from "react-native";
 import StartButton from "./UtilityRNComponents.js"
 import styles from '../designs/stylings';
 
@@ -56,7 +56,7 @@ export default class SignUpScreen extends React.Component {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                email: this.state.email,
+                email: this.state.email.toLowerCase(),
                 password: this.state.password,
                 firstname: this.state.fname,
                 lastname: this.state.lname,
@@ -71,7 +71,7 @@ export default class SignUpScreen extends React.Component {
 
     render() {
         return (
-            <View style={styles.container}>
+            <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
                 <View style={styles.form}>
                     <Text style={styles.textLabel}>Username:</Text>
                     <TextInput style={styles.formInput}
@@ -101,7 +101,7 @@ export default class SignUpScreen extends React.Component {
                         </TouchableOpacity>
                     </View>
                 </View>
-            </View>
+            </KeyboardAvoidingView>
         );
     }
 }

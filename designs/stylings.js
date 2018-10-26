@@ -1,21 +1,25 @@
-import { StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
     container: {
-        //padding:20,
         flex: 1,
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        //backgroundColor: '#00e6e6',
-        backgroundColor: 'white'
+        backgroundColor: 'white',
+        ...Platform.select({android: {
+                underlineColorAndroid: 'transparent',
+            },
+        }),
     },
+
     buttonMainWrap: {
         //flex: 3,
         flexDirection: 'column',
         width: '60%',
         justifyContent: 'center',
     },
+
     logo:{
         //flex: 2,
         alignSelf: 'center',
@@ -25,6 +29,7 @@ export default StyleSheet.create({
         height: 250,
         marginBottom: 50,
     },
+
     button: {
         marginTop: 10,
         marginBottom: 10,
@@ -66,5 +71,4 @@ export default StyleSheet.create({
         width: '100%',
         height: 45,
     },
-
 });
