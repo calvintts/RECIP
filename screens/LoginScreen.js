@@ -3,7 +3,9 @@ import {Text, TextInput, Image} from "react-native";
 import styles from '../designs/stylings';
 import Button, {Container, Form, LinkMessage} from '../components/HeadComponents'
 import Logo from "../images/logo2.png";
-// import FbLogin from '../components/fblogin'
+import GoogleLoginButton from '../components/Googlogin'
+import FacebookLoginButton from '../components/Fblogin'
+
 
 
 export default class SignInScreen extends React.Component {
@@ -72,7 +74,14 @@ export default class SignInScreen extends React.Component {
                                secureTextEntry={true}/>
                     <Button title="Sign In" onPress={this.serverLogin} disabled={!this.state.allowSend}/>
                     <LinkMessage message="New user? " link="Sign Up Here" onPress={this.signUpPage}/>
-                </Form>
+               
+                    <View style={{paddingBottom: 15}}>
+                        <GoogleLoginButton/>
+                    </View>
+                    <View style={{}}>
+                        <FacebookLoginButton/>
+                    </View>
+                 </Form>
             </Container>
         );
     }

@@ -11,7 +11,7 @@ import OtherScreen from "./screens/OtherScreen.js";
 import HomeScreen from "./screens/HomeScreen.js";
 import SignUpScreen from "./screens/SignUpScreen.js";
 import LoginScreen from "./screens/LoginScreen.js";
-//import MainScreen from "./screens/MainScreen.js";
+// import MainScreen from "./screens/MainScreen.js";
 
 
 class AuthLoadingScreen extends React.Component {
