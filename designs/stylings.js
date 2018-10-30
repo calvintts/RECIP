@@ -13,6 +13,13 @@ export default StyleSheet.create({
         }),
     },
 
+    form: {
+        flex: 1,
+        flexDirection: 'column',
+        width: '80%',
+        justifyContent: 'center'
+    },
+
     buttonMainWrap: {
         //flex: 3,
         flexDirection: 'column',
@@ -53,15 +60,10 @@ export default StyleSheet.create({
     },
 
     textLabel: {
-        fontSize: 16,
+        fontSize: 15,
         margin: 5,
     },
-    form: {
-        flex: 1,
-        flexDirection: 'column',
-        width: '70%',
-        justifyContent: 'center'
-    },
+
     formInput:{
         borderColor: 'brown',
         borderWidth: 1,
@@ -70,5 +72,16 @@ export default StyleSheet.create({
         color:'black',
         width: '100%',
         height: 45,
+    },
+
+    errorMessage:{
+        fontSize: 12,
+        color: 'red',
+    },
+
+    errorView: {
+        flex: 1,
+        alignItems: 'flex-end',
+        marginTop: 8,
     },
 });

@@ -1,7 +1,7 @@
 import React from "react";
-import {Text, View, KeyboardAvoidingView, TextInput, TouchableOpacity, Image} from "react-native";
+import {Text, TextInput, Image} from "react-native";
 import styles from '../designs/stylings';
-import StartButton from './UtilityRNComponents.js'
+import Button, {Container, Form, LinkMessage} from '../components/HeadComponents'
 import Logo from "../images/logo2.png";
 // import FbLogin from '../components/fblogin'
 
@@ -58,10 +58,9 @@ export default class SignInScreen extends React.Component {
 
     render() {
         return (
-            <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
-                <View style={styles.form}>
-                    <Image source={Logo} style={styles.logo}>
-                    </Image>
+            <Container>
+                <Form>
+                    <Image source={Logo} style={styles.logo} />
                     <Text style={styles.textLabel}>Username:</Text>
                     <TextInput textContentType="emailAddress" style={styles.formInput}
                                onChangeText={(email) => this.setState({email}, this.verifySend)}
@@ -71,17 +70,10 @@ export default class SignInScreen extends React.Component {
                                onChangeText={(password) => this.setState({password}, this.verifySend)}
                                value={this.state.password}
                                secureTextEntry={true}/>
-                    <View>
-                        <StartButton title="Sign In" onPress={this.serverLogin} disabled={!this.state.allowSend}/>
-                    </View>
-                    <View style={{flexDirection: 'row', justifyContent: 'center'}}>
-                        <Text style={{fontSize: 15}}>New user? </Text>
-                        <TouchableOpacity onPress={this.signUpPage}>
-                            <Text style={{color: 'rgb(150, 10 , 10)', fontSize: 15}}>Register Here</Text>
-                        </TouchableOpacity>
-                    </View>
-                </View>
-            </KeyboardAvoidingView>
+                    <Button title="Sign In" onPress={this.serverLogin} disabled={!this.state.allowSend}/>
+                    <LinkMessage message="New user? " link="Sign Up Here" onPress={this.signUpPage}/>
+                </Form>
+            </Container>
         );
     }
 }
