@@ -2,7 +2,7 @@ import React from "react";
 import {View, Image, TouchableOpacity, Text} from "react-native";
 import Logo from '../images/logo2.png';
 import styles from '../designs/stylings';
-import StartButton from "./UtilityRNComponents.js";
+import StartButton from "../components/HeadComponents.js";
 
  export default class MainScreen extends React.Component {
     render() {

@@ -1,7 +1,7 @@
 import React from "react";
-import {Text, View, StyleSheet, TextInput, TouchableOpacity, Image} from "react-native";
+import {Text, TextInput, Image} from "react-native";
 import styles from '../designs/stylings';
-import StartButton from './UtilityRNComponents.js'
+import Button, {Container, Form, LinkMessage} from '../components/HeadComponents'
 import Logo from "../images/logo2.png";
 import GoogleLoginButton from '../components/Googlogin'
 import FacebookLoginButton from '../components/Fblogin'
@@ -14,11 +14,24 @@ export default class SignInScreen extends React.Component {
         this.state = {
             email: '',
             password: '',
+            allowSend: false,
         };
     }
 
+    verifySend = () => {
+        if(this.state.email !== '' && this.state.password !== '') {
+            this.setState({
+                allowSend: true,
+            })
+        } else {
+            this.setState({
+                allowSend: false,
+            })
+        }
+    }
+
     serverLogin = async () => {
-        if (this.state.email == 'admin' && this.state.password == 'admin'){
+        if (this.state.email.toLowerCase() === 'admin' && this.state.password === 'admin'){
             this.homePage();
         } else {
             await fetch('https://recipefinder2018.herokuapp.com/users/login', {
@@ -28,7 +41,7 @@ export default class SignInScreen extends React.Component {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    email: this.state.email,
+                    email: this.state.email.toLowerCase(),
                     password: this.state.password,
                 })
             })
@@ -47,36 +60,29 @@ export default class SignInScreen extends React.Component {
 
     render() {
         return (
-            <View style={styles.container}>
-                <View style={styles.form}>
-                    <Image source={Logo} style={styles.logo}>
-                    </Image>
+            <Container>
+                <Form>
+                    <Image source={Logo} style={styles.logo} />
                     <Text style={styles.textLabel}>Username:</Text>
                     <TextInput textContentType="emailAddress" style={styles.formInput}
-                               onChangeText={(email) => this.setState({email})}
+                               onChangeText={(email) => this.setState({email}, this.verifySend)}
                                value={this.state.email}/>
                     <Text style={styles.textLabel}>Password:</Text>
                     <TextInput textContentType="password" style={styles.formInput}
-                               onChangeText={(password) => this.setState({password})}
-                               value={this.state.password}/>
-                    <View>
-                        <StartButton title="Sign In" onPress={this.serverLogin}/>
-                    </View>
-                    <View style={{flexDirection: 'row', justifyContent: 'center'}}>
-                        <Text style={{fontSize: 15}}>New user? </Text>
-                        <TouchableOpacity onPress={this.signUpPage}>
-                            <Text style={{color: 'rgb(150, 10 , 10)', fontSize: 15}}>Register Here</Text>
-                        </TouchableOpacity>
-                    </View>
+                               onChangeText={(password) => this.setState({password}, this.verifySend)}
+                               value={this.state.password}
+                               secureTextEntry={true}/>
+                    <Button title="Sign In" onPress={this.serverLogin} disabled={!this.state.allowSend}/>
+                    <LinkMessage message="New user? " link="Sign Up Here" onPress={this.signUpPage}/>
+               
                     <View style={{paddingBottom: 15}}>
                         <GoogleLoginButton/>
                     </View>
                     <View style={{}}>
                         <FacebookLoginButton/>
                     </View>
-                </View>
-
-            </View>
+                 </Form>
+            </Container>
         );
     }
 }

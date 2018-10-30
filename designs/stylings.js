@@ -1,21 +1,32 @@
-import { StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
     container: {
-        padding:20,
         flex: 1,
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        //backgroundColor: '#00e6e6',
-        backgroundColor: 'white'
+        backgroundColor: 'white',
+        ...Platform.select({android: {
+                underlineColorAndroid: 'transparent',
+            },
+        }),
     },
+
+    form: {
+        flex: 1,
+        flexDirection: 'column',
+        width: '80%',
+        justifyContent: 'center'
+    },
+
     buttonMainWrap: {
         //flex: 3,
         flexDirection: 'column',
         width: '60%',
         justifyContent: 'center',
     },
+
     logo:{
         //flex: 2,
         alignSelf: 'center',
@@ -25,6 +36,7 @@ export default StyleSheet.create({
         height: 250,
         marginBottom: 50,
     },
+
     button: {
         marginTop: 10,
         marginBottom: 10,
@@ -48,15 +60,10 @@ export default StyleSheet.create({
     },
 
     textLabel: {
-        fontSize: 16,
+        fontSize: 15,
         margin: 5,
     },
-    form: {
-        flex: 1,
-        flexDirection: 'column',
-        width: '70%',
-        justifyContent: 'center'
-    },
+
     formInput:{
         borderColor: 'brown',
         borderWidth: 1,
@@ -67,4 +74,14 @@ export default StyleSheet.create({
         height: 45,
     },
 
+    errorMessage:{
+        fontSize: 12,
+        color: 'red',
+    },
+
+    errorView: {
+        flex: 1,
+        alignItems: 'flex-end',
+        marginTop: 8,
+    },
 });
