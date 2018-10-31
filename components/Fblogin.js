@@ -1,6 +1,7 @@
 import React from "react"
-import {Alert, Button } from "react-native"
+import {Alert} from "../components/HeadComponents"
 import Expo from "expo"
+import {StyleSheet, Text, TouchableOpacity} from "react-native";
 
 export default class GoogloginButton extends React.Component {
     constructor(props) {
@@ -29,7 +30,27 @@ export default class GoogloginButton extends React.Component {
     };
     render() {
         return (
-            <Button title='Sign in to Facebook' onPress={this._signIn}  />
+            <TouchableOpacity  style={styles.button} onPress={this._signIn}>
+                <Text style={styles.text}>Sign in with Facebook</Text>
+            </TouchableOpacity>
         )
     }
 }
+
+styles = StyleSheet.create({
+    button: {
+        marginTop: 5,
+        height: 45,
+        justifyContent: 'center',
+        borderWidth: 1,
+        borderRadius: 10,
+        borderColor: '#3B5998',
+        backgroundColor: '#3B5998',
+    },
+
+    text: {
+        textAlign: 'center',
+        color: 'white',
+        fontSize: 17,
+    }
+});

@@ -1,6 +1,6 @@
-import React from "react"
-import { StyleSheet, Text, View, Image, Button } from "react-native"
-import Expo from "expo"
+import React from "react";
+import Expo from "expo";
+import {StyleSheet, Text, TouchableOpacity} from "react-native";
 
 export default class GoogloginButton extends React.Component {
     constructor(props) {
@@ -33,8 +33,29 @@ export default class GoogloginButton extends React.Component {
 
     render() {
         return (
-            <Button title='Sign in to Google' onPress={this._signIn}  />
+            <TouchableOpacity  style={gStyles.button} onPress={this._signIn}>
+                <Text style={gStyles.text}>Sign in with Google</Text>
+            </TouchableOpacity>
         )
     }
 }
+
+gStyles = StyleSheet.create({
+    button: {
+        marginTop: 5,
+        height: 45,
+        justifyContent: 'center',
+        borderWidth: 1,
+        borderRadius: 10,
+        borderColor: 'orange',
+        backgroundColor: 'orange',
+    },
+
+    text: {
+        textAlign: 'center',
+        color: 'white',
+        fontSize: 17,
+    }
+});
+
 

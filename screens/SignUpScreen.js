@@ -1,8 +1,7 @@
 import React from "react";
-import {Text, View,  TextInput, TouchableOpacity} from "react-native";
-import Button, {Container, Form, FormText} from "../components/HeadComponents.js"
+import {Text, TextInput} from "react-native";
+import Button, {Container, Form, FormText, LinkMessage} from "../components/HeadComponents"
 import styles from '../designs/stylings';
-import {LinkMessage} from "../components/HeadComponents";
 
 export default class SignUpScreen extends React.Component {
     constructor(props) {
@@ -108,25 +107,30 @@ export default class SignUpScreen extends React.Component {
                     <Text style={styles.textLabel}>Email:</Text>
                     <TextInput style={styles.formInput}
                                onChangeText={(email) => this.setState({email}, this.verifySend)}
-                               value={this.state.email}/>
+                               value={this.state.email}
+                               underlineColorAndroid={'transparent'}/>
                     <FormText title="Password:" flag={this.state.passwordError} errorTitle="Passwords do not match" />
                     <TextInput style={styles.formInput}
                                onChangeText={(password) => this.setState({password}, this.verifyPassword)}
                                value={this.state.password}
-                               secureTextEntry={true}/>
+                               secureTextEntry={true}
+                               underlineColorAndroid={'transparent'}/>
                     <FormText title="Confirm Password:" flag={this.state.passwordError} errorTitle="Passwords do not match" />
                     <TextInput style={styles.formInput}
                                onChangeText={(repassword) => this.setState({repassword}, this.verifyPassword)}
                                value={this.state.repassword}
-                               secureTextEntry={true}/>
+                               secureTextEntry={true}
+                               underlineColorAndroid={'transparent'}/>
                     <FormText title="First Name:" flag={this.state.fnameError} errorTitle="Undefined characters in name" />
                     <TextInput style={styles.formInput}
                                onChangeText={(fname) => this.setState({fname}, this.verifyFirstName)}
-                               value={this.state.fname}/>
+                               value={this.state.fname}
+                               underlineColorAndroid={'transparent'}/>
                     <FormText title="Last Name:" flag={this.state.lnameError} errorTitle="Undefined characters in name" />
                     <TextInput style={styles.formInput}
                                onChangeText={(lname) => this.setState({lname}, this.verifyLastName)}
-                               value={this.state.lname}/>
+                               value={this.state.lname}
+                               underlineColorAndroid={'transparent'}/>
                     <Button disabled={!this.state.allowSend} title="Sign up" onPress={this.serverRegister}/>
                     <LinkMessage message='Already a member? ' link='Sign in Here' onPress={this.signInPage}/>
                 </Form>

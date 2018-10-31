@@ -7,10 +7,6 @@ export default StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: 'white',
-        ...Platform.select({android: {
-                underlineColorAndroid: 'transparent',
-            },
-        }),
     },
 
     form: {
@@ -27,20 +23,19 @@ export default StyleSheet.create({
         justifyContent: 'center',
     },
 
-    logo:{
+    logoSmall:{
         //flex: 2,
         alignSelf: 'center',
         justifyContent:'center',
-        width: 400,
+        width: 300,
         resizeMode: 'contain',
-        height: 250,
-        marginBottom: 50,
+        height: 150,
+        marginBottom: 30,
     },
 
     button: {
         marginTop: 10,
-        marginBottom: 10,
-        height: 60,
+        height: 45,
         justifyContent: 'center',
         borderWidth: 1,
         borderRadius: 10,
@@ -50,8 +45,8 @@ export default StyleSheet.create({
 
     disableButton: {
         marginTop: 10,
-        marginBottom: 10,
-        height: 60,
+        marginBottom: 5,
+        height: 45,
         justifyContent: 'center',
         borderWidth: 1,
         borderRadius: 10,
@@ -65,11 +60,11 @@ export default StyleSheet.create({
     },
 
     formInput:{
-        borderColor: 'brown',
+        borderColor: 'red',
         borderWidth: 1,
         borderRadius: 10,
         textAlign:'center',
-        color:'black',
+        color: 'black',
         width: '100%',
         height: 45,
     },
@@ -84,4 +79,8 @@ export default StyleSheet.create({
         alignItems: 'flex-end',
         marginTop: 8,
     },
+
+    oauthForm: {
+        marginBottom: 10,
+    }
 });

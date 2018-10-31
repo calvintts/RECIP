@@ -11,7 +11,7 @@ export default class Button extends React.Component {
         } = this.props;
         return (
             <TouchableOpacity disabled={disabled} style={disabled?styles.disableButton:styles.button} onPress={onPress}>
-                <Text style={{textAlign: 'center', color: 'white', fontSize: 15,}}>{title}</Text>
+                <Text style={{textAlign: 'center', color: 'white', fontSize: 17,}}>{title}</Text>
             </TouchableOpacity>
         )
     };
@@ -51,7 +51,7 @@ export class LinkMessage extends React.Component {
             <View style={{flexDirection: 'row', justifyContent: 'center'}}>
                 <Text style={{fontSize: 15}}>{ message }</Text>
                 <TouchableOpacity onPress={ onPress }>
-                    <Text style={{color: 'rgb(150, 10 , 10)', fontSize: 15}}>{ link }</Text>
+                    <Text style={{color: 'rgb(180, 50, 50)', fontSize: 15}}>{ link }</Text>
                 </TouchableOpacity>
             </View>
         )
