@@ -1,5 +1,5 @@
 import React from "react";
-import {TouchableOpacity, Text, KeyboardAvoidingView, View} from "react-native";
+import {TouchableOpacity, Text, KeyboardAvoidingView, View, ScrollView} from "react-native";
 import styles from '../designs/stylings';
 
 export default class Button extends React.Component {
@@ -58,6 +58,14 @@ export class LinkMessage extends React.Component {
     }
 }
 
+export const Form = (props) =>{
+    return (
+        <View style={styles.form}>
+            {props.children}
+        </View>
+    )
+};
+
 export const Container = (props) => {
     return (
         <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
@@ -66,11 +74,4 @@ export const Container = (props) => {
     )
 };
 
-export const Form = (props) =>{
-    return (
-        <View style={styles.form}>
-            {props.children}
-        </View>
-    )
-};
 
