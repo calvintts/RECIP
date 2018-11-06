@@ -82,5 +82,19 @@ export default StyleSheet.create({
 
     oauthForm: {
         marginBottom: 10,
+    },
+
+    horizontalMenu: {
+        borderColor: 'black',
+        borderWidth: 1,
+        borderRadius: 10,
+    },
+
+    menuBar: {
+        backgroundColor: 'blue',
+        padding: 5,
+        justifyContent: 'center',
+        flex: 1,
+        flexDirection: 'row',
     }
 });

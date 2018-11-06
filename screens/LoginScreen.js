@@ -29,7 +29,7 @@ export default class SignInScreen extends React.Component {
     }
 
     serverLogin = async () => {
-        if (this.state.email.toLowerCase() === 'admin' && this.state.password === 'admin'){
+        if (this.state.email.toLowerCase().trim() === 'admin' && this.state.password === 'admin'){
             this.homePage();
         } else {
             await fetch('https://recipefinder2018.herokuapp.com/users/login', {
