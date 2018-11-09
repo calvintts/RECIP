@@ -1,5 +1,5 @@
 import React from "react";
-import {View, Image, TouchableOpacity, Text} from "react-native";
+import {View, Image} from "react-native";
 import Logo from '../images/logo2.png';
 import styles from '../designs/stylings';
 import StartButton from "../components/HeadComponents.js";

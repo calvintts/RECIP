@@ -1,5 +1,5 @@
 import React from "react";
-import {TouchableOpacity, Text, KeyboardAvoidingView, View} from "react-native";
+import {TouchableOpacity, Text, KeyboardAvoidingView, View, Switch, AsyncStorage} from "react-native";
 import styles from '../designs/stylings';
 
 export default class Button extends React.Component {
@@ -55,6 +55,35 @@ export class LinkMessage extends React.Component {
                 </TouchableOpacity>
             </View>
         )
+    }
+}
+
+export class Ingredients extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            selected: false
+        }
+    };
+
+    updateStorage = async(selected, name) => {
+        this.setState({ selected: !selected});
+        const status = (!selected)? '1':'0';
+        try {
+            await AsyncStorage.setItem(name.toString(), status);
+        } catch (error) {
+            console.log(error.message);
+        }
+    };
+
+    render(){
+        const { name } = this.props;
+        return(
+            <View style={{ flexDirection: 'row'}}>
+                <Text>{ name }</Text>
+                <Switch value={this.state.selected} onValueChange={() => this.updateStorage(this.state.selected, { name })}/>
+            </View>
+        );
     }
 }
 

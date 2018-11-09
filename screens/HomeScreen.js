@@ -1,22 +1,22 @@
 import React from "react";
-import {AsyncStorage, View} from "react-native";
-import Menu from '../components/IngredientsMenu';
-
+import {AsyncStorage, Button, View} from "react-native";
 
 export default class HomeScreen extends React.Component {
     static navigationOptions = {
         header: null,
     };
+
     render() {
         return (
             <View>
-                <Menu />
+                <Button title="Select Ingredients Yo" onPress={this.toIngredientMenu} />
+                <Button title="I'm done, sign me out" onPress={this._signOutAsync} />
             </View>
         );
     }
 
-    _showMoreApp = () => {
-        this.props.navigation.navigate('Other');
+    toIngredientMenu = () => {
+       this.props.navigation.navigate('Food');
     };
 
     _signOutAsync = async () => {
@@ -24,3 +24,4 @@ export default class HomeScreen extends React.Component {
         this.props.navigation.navigate('Auth');
     };
 };
+

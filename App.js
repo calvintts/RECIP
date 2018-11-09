@@ -6,11 +6,14 @@ import {
     StyleSheet,
     View,
 } from 'react-native';
-import { createStackNavigator, createSwitchNavigator } from 'react-navigation';
+import {createMaterialTopTabNavigator, createStackNavigator, createSwitchNavigator} from 'react-navigation';
 import OtherScreen from "./screens/OtherScreen.js";
 import HomeScreen from "./screens/HomeScreen.js";
 import SignUpScreen from "./screens/SignUpScreen.js";
 import LoginScreen from "./screens/LoginScreen.js";
+import Proteins from "./screens/Proteins";
+import Vegetables from "./screens/Vegetables";
+import Condiments from "./screens/Condiments";
 // import MainScreen from "./screens/MainScreen.js";
 
 
@@ -51,12 +54,16 @@ const styles = StyleSheet.create({
 
 const AppStack = createStackNavigator({ Home: HomeScreen, Other: OtherScreen });
 const AuthStack = createSwitchNavigator({ Login: LoginScreen, SignUp: SignUpScreen },{initialRouteName: 'Login',});
+const FoodStack = createMaterialTopTabNavigator({Proteins: Proteins, Vegetables: Vegetables, Condiments: Condiments}, {
+    initialRouteName: 'Proteins',
+});
 
 export default createSwitchNavigator(
     {
         AuthLoading: AuthLoadingScreen,
         App: AppStack,
         Auth: AuthStack,
+        Food: FoodStack,
     },
     {
         initialRouteName: 'AuthLoading',

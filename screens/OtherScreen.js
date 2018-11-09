@@ -22,7 +22,7 @@ export default class OtherScreen extends React.Component {
                 <StatusBar barStyle="default" />
             </View>
         );
-    }
+    };
 
     _signOutAsync = async () => {
         await AsyncStorage.clear();
