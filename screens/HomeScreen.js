@@ -1,11 +1,8 @@
 import React from "react";
 import {AsyncStorage, Button, View} from "react-native";
+import { Constants } from 'expo';
 
 export default class HomeScreen extends React.Component {
-    static navigationOptions = {
-        header: null,
-    };
-
     render() {
         return (
             <View>

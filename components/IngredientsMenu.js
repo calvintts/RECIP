@@ -11,7 +11,7 @@ export default class IngredientsSelection extends React.Component {
 
     render() {
         return (
-            <View style={{padding: 20, justifyContent: 'center'}}>
+            <View style={styles.container}>
                 <ScrollView horizontal={true} style={styles.horizontalMenu} contentContainerStyle={{justifyContent: 'center', alignItems: 'center'}}>
                     {
                         this.state.ingredientList.map((menus, index) => {
@@ -25,9 +25,9 @@ export default class IngredientsSelection extends React.Component {
                 </ScrollView>
                 <FlatList data={this.state.content}
                           renderItem={({item}) =>
-                              <View style={{ flexDirection: 'row'}}>
-                                <Text>{item.key}</Text>
-                                <Switch value={item.selected} onValueChange={(item, selected) => this.setState({selected: !selected})}/>
+                              <View style={styles.ingredientsFlatListView}>
+                                <Text style={styles.ingredientsText}>{item.key}</Text>
+                                <Switch style={styles.ingredientsSwitch} value={item.selected} onValueChange={(item, selected) => this.setState({selected: !selected})}/>
                               </View>}
                 />
             </View>

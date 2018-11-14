@@ -14,6 +14,7 @@ import LoginScreen from "./screens/LoginScreen.js";
 import Proteins from "./screens/Proteins";
 import Vegetables from "./screens/Vegetables";
 import Condiments from "./screens/Condiments";
+import {Constants} from 'expo';
 // import MainScreen from "./screens/MainScreen.js";
 
 
@@ -54,8 +55,18 @@ const styles = StyleSheet.create({
 
 const AppStack = createStackNavigator({ Home: HomeScreen, Other: OtherScreen });
 const AuthStack = createSwitchNavigator({ Login: LoginScreen, SignUp: SignUpScreen },{initialRouteName: 'Login',});
-const FoodStack = createMaterialTopTabNavigator({Proteins: Proteins, Vegetables: Vegetables, Condiments: Condiments}, {
-    initialRouteName: 'Proteins',
+const FoodStack = createMaterialTopTabNavigator({Proteins: Proteins, Vegetables: Vegetables, Condiments: Condiments},
+    {initialRouteName: 'Proteins',
+        tabBarOptions: {
+            style: {
+                paddingTop: Constants.statusBarHeight,
+                backgroundColor: 'red',
+            },
+            activeTintColor:'black',
+            indicatorStyle:{
+                backgroundColor:'black'
+            }
+        },
 });
 
 export default createSwitchNavigator(
@@ -66,6 +77,6 @@ export default createSwitchNavigator(
         Food: FoodStack,
     },
     {
-        initialRouteName: 'AuthLoading',
+        initialRouteName: 'Food',
     }
 );
