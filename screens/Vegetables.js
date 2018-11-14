@@ -1,7 +1,7 @@
 import React from "react";
 import styles from '../designs/stylings';
-import {View, Text, ScrollView} from "react-native";
-import {Ingredients} from "../components/HeadComponents";
+import {View, ScrollView} from "react-native";
+import {Ingredients, IngredientsHandIn} from "../components/HeadComponents";
 
 export default class IngredientsSelection extends React.Component {
     render(){
@@ -18,6 +18,7 @@ export default class IngredientsSelection extends React.Component {
                     <Ingredients name="lime"/>
                     <Ingredients name="basil"/>
                 </ScrollView>
+                <IngredientsHandIn/>
             </View>
         )
     }

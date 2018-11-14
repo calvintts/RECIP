@@ -71,6 +71,7 @@ export class Ingredients extends React.Component {
         const status = (!selected)? '1':'0';
         try {
             await AsyncStorage.setItem(name.toString(), status);
+            console.log(name.toString()+' '+status);
         } catch (error) {
             console.log(error.message);
         }
@@ -81,9 +82,50 @@ export class Ingredients extends React.Component {
         return(
             <View style={{ flexDirection: 'row'}}>
                 <Text>{ name }</Text>
-                <Switch value={this.state.selected} onValueChange={() => this.updateStorage(this.state.selected, { name })}/>
+                <Switch value={this.state.selected} onValueChange={() => this.updateStorage(this.state.selected, this.props.name )}/>
             </View>
         );
+    }
+}
+
+export class IngredientsHandIn extends React.Component {
+    sendIngredient = async() => {
+        const IngredientList = [
+            'chicken', 'fish', 'pork',
+            'broccoli', 'lettuce', 'cucumber', 'tomato',
+            'garlic', 'lemon', 'lime', 'basil', 'onion',
+            'salt', 'pepper', 'thyme', 'paprika', 'cumin',
+            'soy sauce', 'butter', 'milk', 'rosemary'
+        ];
+
+        let liao = [];
+        AsyncStorage.multiGet(IngredientList, (err, stores) =>
+        {
+            stores.map((item)=>{item[1] === '1'?liao.push(item[0]):null})
+            console.log(liao);
+            fetch('https://recipefinder2018.herokuapp.com/users/updateliao', {
+            method: 'PUT',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                id: "5bc7d2f17fc0ca50f5ae02c6",
+                ingredients: liao,
+            })
+        })
+            .then(response => response.json())
+            .then(json => console.log(json.message))
+        });
+
+    };
+
+    render() {
+        return (
+            <View>
+                <Button title='Confirm' onPress={this.sendIngredient}/>
+            </View>
+        )
     }
 }
 

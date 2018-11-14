@@ -1,5 +1,5 @@
 import React from "react";
-import {Text, TextInput, Image, View, StyleSheet, Platform} from "react-native";
+import {Text, TextInput, Image, View, AsyncStorage} from "react-native";
 import styles from '../designs/stylings';
 import Button, {Container, Form, LinkMessage} from '../components/HeadComponents';
 import Logo from "../images/logo2.png";
