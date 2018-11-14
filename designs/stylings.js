@@ -96,5 +96,16 @@ export default StyleSheet.create({
         justifyContent: 'center',
         flex: 1,
         flexDirection: 'row',
+    },
+    ingredientsView: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        padding: 5,
+    },
+    ingredientsText: {
+
+    },
+    ingredientsSwitch: {
+        alignSelf:'center'
     }
 });

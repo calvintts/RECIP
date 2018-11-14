@@ -1,5 +1,5 @@
 import React from "react";
-import {TouchableOpacity, Text, KeyboardAvoidingView, View, Switch, AsyncStorage} from "react-native";
+import {TouchableOpacity, Text, KeyboardAvoidingView, View, Switch, AsyncStorage,Image} from "react-native";
 import styles from '../designs/stylings';
 
 export default class Button extends React.Component {
@@ -80,9 +80,18 @@ export class Ingredients extends React.Component {
     render(){
         const { name } = this.props;
         return(
+<<<<<<< HEAD
             <View style={{ flexDirection: 'row'}}>
                 <Text>{ name }</Text>
                 <Switch value={this.state.selected} onValueChange={() => this.updateStorage(this.state.selected, this.props.name )}/>
+=======
+            <View style={styles.ingredientsView}>
+                <View style={{flexDirection:"row"}}>
+                    <Image style={{width:150, height:150}} source={require(`../images/ingredients/garlic.png`)}/>
+                    <Text style=/*{styles.ingredientsText}*/{{alignSelf: 'center'}}>{ name }</Text>
+                </View>
+                <Switch style={styles.ingredientsSwitch} value={this.state.selected} onValueChange={() => this.updateStorage(this.state.selected, { name })}/>
+>>>>>>> 8ca6faff3c6b34b895a39c9e7fac9cd1921ab9e3
             </View>
         );
     }
