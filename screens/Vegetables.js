@@ -4,6 +4,9 @@ import {View, ScrollView} from "react-native";
 import {Ingredients, IngredientsHandIn} from "../components/HeadComponents";
 
 export default class IngredientsSelection extends React.Component {
+    static navigationOptions = {
+        title:"Vegetables"
+    };
     render(){
         return(
             <View>

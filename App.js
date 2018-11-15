@@ -1,10 +1,12 @@
 import React from 'react';
 import {
+    Button,
     ActivityIndicator,
     AsyncStorage,
     StatusBar,
     StyleSheet,
     View,
+    Text,
 } from 'react-native';
 import {createBottomTabNavigator, createStackNavigator, createSwitchNavigator} from 'react-navigation';
 import OtherScreen from "./screens/OtherScreen.js";
@@ -14,6 +16,8 @@ import LoginScreen from "./screens/LoginScreen.js";
 import Proteins from "./screens/Proteins";
 import Vegetables from "./screens/Vegetables";
 import Condiments from "./screens/Condiments";
+import UpdateIngredients from "./components/UpdateIngredients"
+import {Ionicons} from "react-native-vector-icons";
 import {Constants} from 'expo';
 // import MainScreen from "./screens/MainScreen.js";
 
@@ -53,22 +57,38 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
 });
-const FoodStack = createBottomTabNavigator({Proteins: Proteins, Vegetables: Vegetables, Condiments: Condiments},
-    {
-        initialRouteName: 'Proteins',
-        backBehavior: 'none',
-        tabBarOptions: {
-            style: {
-                paddingTop: Constants.statusBarHeight,
-                backgroundColor: 'red',
-            },
-            activeTintColor:'black',
-            indicatorStyle:{
-                backgroundColor:'black'
+
+const FoodStack = createBottomTabNavigator({Proteins: Proteins, Vegetables: Vegetables, Condiments: Condiments},{
+    navigationOptions: ({ navigation }) => ({
+        tabBarIcon: ({ focused, tintColor }) => {
+            const { routeName } = navigation.state;
+            let iconName;
+            if (routeName === 'Proteins') {
+                iconName = `ios-information-circle${focused ? '' : '-outline'}`;
+            } else if (routeName === 'Vegetables') {
+                iconName = `ios-options${focused ? '' : '-outline'}`;
+            }else if (routeName === 'Condiments'){
+                iconName = `ios-options${focused ? '' : '-outline'}`;
             }
+            // You can return any component that you like here! We usually use an
+            // icon component from react-native-vector-icons
+            return <Ionicons name={iconName} size={25} color={tintColor} />;
         },
-    });
-const AppStack = createStackNavigator({ Home: HomeScreen, Other: OtherScreen, Food: FoodStack});
+    }),
+    tabBarOptions: {
+        activeTintColor: 'tomato',
+        inactiveTintColor: 'gray',
+    },
+    animationEnabled: false,
+    swipeEnabled: false,
+})
+
+const AppStack = createStackNavigator({ Home: HomeScreen, Other: OtherScreen, Food: FoodStack},{
+    navigationOptions: ({ navigation }) => ({
+        title: `Pick Your Ingredients`,
+        headerRight: <UpdateIngredients/>,
+    })
+});
 const AuthStack = createSwitchNavigator({ Login: LoginScreen, SignUp: SignUpScreen },{initialRouteName: 'Login',});
 
 

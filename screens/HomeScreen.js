@@ -1,21 +1,19 @@
 import React from "react";
 import {AsyncStorage, Button, View} from "react-native";
 import { Constants } from 'expo';
-import SettingPopup  from '../components/SettingPopup';
+import SettingPopup  from '../components/UpdateIngredients';
 
 
 export default class HomeScreen extends React.Component {
     static navigationOptions = {
-        headerTitle: "Menu",
-        headerRight: (
-                <SettingPopup/>
-            )
+        header:null
     };
     render() {
         return (
-            <View>
+            <View style={{flex:1, flexDirection:"column",justifyContent:"space-around",paddingTop: Constants.statusBarHeight}}>
                 <Button title="Select Ingredients Yo" onPress={this.toIngredientMenu} />
                 <Button title="I'm done, sign me out" onPress={this._signOutAsync} />
+                <Button title="sohai" onPress={()=>{this.props.navigation.navigate('Other')}}/>
             </View>
         );
     }
