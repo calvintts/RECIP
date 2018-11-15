@@ -6,7 +6,7 @@ import {
     StyleSheet,
     View,
 } from 'react-native';
-import {createMaterialTopTabNavigator, createStackNavigator, createSwitchNavigator} from 'react-navigation';
+import {createBottomTabNavigator, createStackNavigator, createSwitchNavigator} from 'react-navigation';
 import OtherScreen from "./screens/OtherScreen.js";
 import HomeScreen from "./screens/HomeScreen.js";
 import SignUpScreen from "./screens/SignUpScreen.js";
@@ -53,11 +53,10 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
 });
-
-const AppStack = createStackNavigator({ Home: HomeScreen, Other: OtherScreen });
-const AuthStack = createSwitchNavigator({ Login: LoginScreen, SignUp: SignUpScreen },{initialRouteName: 'Login',});
-const FoodStack = createMaterialTopTabNavigator({Proteins: Proteins, Vegetables: Vegetables, Condiments: Condiments},
-    {initialRouteName: 'Proteins',
+const FoodStack = createBottomTabNavigator({Proteins: Proteins, Vegetables: Vegetables, Condiments: Condiments},
+    {
+        initialRouteName: 'Proteins',
+        backBehavior: 'none',
         tabBarOptions: {
             style: {
                 paddingTop: Constants.statusBarHeight,
@@ -68,16 +67,18 @@ const FoodStack = createMaterialTopTabNavigator({Proteins: Proteins, Vegetables:
                 backgroundColor:'black'
             }
         },
-});
+    });
+const AppStack = createStackNavigator({ Home: HomeScreen, Other: OtherScreen, Food: FoodStack});
+const AuthStack = createSwitchNavigator({ Login: LoginScreen, SignUp: SignUpScreen },{initialRouteName: 'Login',});
+
 
 export default createSwitchNavigator(
     {
         AuthLoading: AuthLoadingScreen,
         App: AppStack,
         Auth: AuthStack,
-        Food: FoodStack,
     },
     {
-        initialRouteName: 'Food',
+        initialRouteName: 'AuthLoading',
     }
 );

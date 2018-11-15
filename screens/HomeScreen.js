@@ -1,8 +1,16 @@
 import React from "react";
 import {AsyncStorage, Button, View} from "react-native";
 import { Constants } from 'expo';
+import SettingPopup  from '../components/SettingPopup';
+
 
 export default class HomeScreen extends React.Component {
+    static navigationOptions = {
+        headerTitle: "Menu",
+        headerRight: (
+                <SettingPopup/>
+            )
+    };
     render() {
         return (
             <View>
