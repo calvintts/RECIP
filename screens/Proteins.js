@@ -11,9 +11,9 @@ export default class IngredientsSelection extends React.Component {
         return(
             <View>
                 <ScrollView>
-                    <Ingredients name="chicken"/>
-                    <Ingredients name="fish"/>
-                    <Ingredients name="pork"/>
+                    <Ingredients name="chicken" imagesrc={require("../images/ingredients/chicken.png")}/>
+                    <Ingredients name="fish" imagesrc={require("../images/ingredients/fish.png")}/>
+                    <Ingredients name="pork" imagesrc={require("../images/ingredients/pork.png")}/>
                 </ScrollView>
                 <IngredientsHandIn/>
             </View>

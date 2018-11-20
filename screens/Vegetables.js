@@ -11,15 +11,15 @@ export default class IngredientsSelection extends React.Component {
         return(
             <View>
                 <ScrollView>
-                    <Ingredients name="broccoli"/>
-                    <Ingredients name="lettuce"/>
-                    <Ingredients name="cucumber"/>
-                    <Ingredients name="tomato"/>
-                    <Ingredients name="garlic"/>
-                    <Ingredients name="onion"/>
-                    <Ingredients name="lemon"/>
-                    <Ingredients name="lime"/>
-                    <Ingredients name="basil"/>
+                    <Ingredients name="broccoli"  imagesrc={require("../images/ingredients/broccoli.png")}/>
+                    <Ingredients name="lettuce"  imagesrc={require("../images/ingredients/lettuce.png")}/>
+                    <Ingredients name="cucumber"  imagesrc={require("../images/ingredients/cucumber.png")}/>
+                    <Ingredients name="tomato"  imagesrc={require("../images/ingredients/tomato.png")}/>
+                    <Ingredients name="garlic"  imagesrc={require("../images/ingredients/garlic.png")}/>
+                    <Ingredients name="onion"  imagesrc={require("../images/ingredients/onion.png")}/>
+                    <Ingredients name="lemon"  imagesrc={require("../images/ingredients/lemon.png")}/>
+                    <Ingredients name="lime"  imagesrc={require("../images/ingredients/lime.png")}/>
+                    <Ingredients name="basil"  imagesrc={require("../images/ingredients/basil.png")}/>
                 </ScrollView>
                 <IngredientsHandIn/>
             </View>

@@ -86,6 +86,7 @@ const FoodStack = createBottomTabNavigator({Proteins: Proteins, Vegetables: Vege
 const AppStack = createStackNavigator({ Home: HomeScreen, Other: OtherScreen, Food: FoodStack},{
     navigationOptions: ({ navigation }) => ({
         title: `Pick Your Ingredients`,
+        headerTintColor: 'red',
         headerRight: <UpdateIngredients/>,
     })
 });

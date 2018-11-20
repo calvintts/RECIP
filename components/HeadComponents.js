@@ -79,11 +79,12 @@ export class Ingredients extends React.Component {
 
     render(){
         const { name } = this.props;
+        const {imagesrc} = this.props;
         return(
             <View style={styles.ingredientsView}>
                 <View style={{flexDirection:"row"}}>
-                    <Image style={{width:150, height:150}} source={require(`../images/ingredients/garlic.png`)}/>
-                    <Text style=/*{styles.ingredientsText}*/{{alignSelf: 'center'}}>{ name }</Text>
+                    <Image style={{width:150, height:150,resizeMode: 'contain',}} source={imagesrc}/>
+                    <Text style=/*{styles.ingredientsText}*/{{padding:10,alignSelf: 'center'}}>{ name }</Text>
                 </View>
                 <Switch style={styles.ingredientsSwitch} value={this.state.selected} onValueChange={() => this.updateStorage(this.state.selected, { name })}/>
             </View>

@@ -101,6 +101,9 @@ export default StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         padding: 5,
+        borderRadius: 1,
+        borderWidth: 0.3,
+        borderColor: 'red'
     },
     ingredientsText: {
 
